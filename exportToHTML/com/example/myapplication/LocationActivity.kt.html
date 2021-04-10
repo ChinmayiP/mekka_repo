@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>LocationActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+LocationActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_location.*</span>
+
+<span class="s0">class </span><span class="s1">LocationActivity : AppCompatActivity() {</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_location)</span>
+        <span class="s1">webView.settings.javaScriptEnabled = </span><span class="s0">true</span>
+         <span class="s0">val </span><span class="s1">locationName = intent.getIntExtra(</span><span class="s2">&quot;position&quot;</span><span class="s0">,</span><span class="s3">0</span><span class="s1">)</span>
+        <span class="s0">if </span><span class="s1">(locationName == </span><span class="s3">0</span><span class="s1">){</span>
+            <span class="s1">webView.loadUrl(</span><span class="s2">&quot;https://www.google.com/maps/place/Arafat+-+Worship+Ground/@21.3509073,39.9631419,14z/data=!4m8!1m2!2m1!1sarafat!3m4!1s0x15c2077fa173daab:0xee381000c202701f!8m2!3d21.352918!4d39.9781859&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span><span class="s0">else  if </span><span class="s1">(locationName == </span><span class="s3">1</span><span class="s1">){</span>
+            <span class="s1">webView.loadUrl(</span><span class="s2">&quot;https://www.google.com/maps/place/Mina,+Al+Mashair,+Mecca+Saudi+Arabia/@21.4152071,39.8701678,14z/data=!3m1!4b1!4m8!1m2!2m1!1smina!3m4!1s0x15c2040f36853503:0xd6a3cb46f2b797b4!8m2!3d21.4146051!4d39.894564&quot;</span><span class="s1">)</span>
+        <span class="s1">}</span>
+        <span class="s0">else if</span><span class="s1">(locationName == </span><span class="s3">2</span><span class="s1">){</span>
+            <span class="s1">webView.loadUrl(</span><span class="s2">&quot;https://www.google.com/maps/place/Mecca+Saudi+Arabia/@21.4359571,39.7064606,11z/data=!3m1!4b1!4m5!3m4!1s0x15c21b4ced818775:0x98ab2469cf70c9ce!8m2!3d21.3890824!4d39.8579118&quot;</span><span class="s1">)</span>
+        <span class="s1">}</span><span class="s0">else if</span><span class="s1">(locationName == </span><span class="s3">3</span><span class="s1">){</span>
+            <span class="s1">webView.loadUrl(</span><span class="s2">&quot;https://www.google.com/maps/place/Medina+Saudi+Arabia/@24.4714392,39.3373543,10z/data=!3m1!4b1!4m5!3m4!1s0x15bdbe5197d220d5:0x2e54514fea3b08d9!8m2!3d24.5246542!4d39.5691841&quot;</span><span class="s1">)</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>horizontalAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+horizontalAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="s0">class </span><span class="s1">horizontalAdapter(</span><span class="s0">val </span><span class="s1">icons: IntArray):RecyclerView.Adapter&lt;horizontalAdapter.ViewHolder&gt;() {</span>
+    <span class="s0">class </span><span class="s1">ViewHolder(v: View):RecyclerView.ViewHolder(v){</span>
+        <span class="s0">val </span><span class="s1">iv_profile_horizontal : ImageView = v.findViewById(R.id.iv_profile_horizontal)</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): ViewHolder {</span>
+      <span class="s0">val </span><span class="s1">itemview = LayoutInflater.from(parent.context).inflate(R.layout.hori_item</span><span class="s0">,</span><span class="s1">parent</span><span class="s0">,false</span><span class="s1">)</span>
+        <span class="s0">return </span><span class="s1">ViewHolder(itemview)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: ViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s1">holder.iv_profile_horizontal.setImageResource(icons.get(position))</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">icons.size</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

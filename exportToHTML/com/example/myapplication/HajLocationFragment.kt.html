@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>HajLocationFragment.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #808080;}
+.s4 { color: #6a8759;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HajLocationFragment.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import androidx.fragment.app.Fragment</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import androidx.recyclerview.widget.DefaultItemAnimator</span>
+<span class="s1">import androidx.recyclerview.widget.GridLayoutManager</span>
+<span class="s1">import kotlinx.android.synthetic.main.fragment_haj_location.*</span>
+
+
+<span class="s2">/**</span>
+ <span class="s2">* A simple [Fragment] subclass.</span>
+ <span class="s2">* Use the [HajLocationFragment.newInstance] factory method to</span>
+ <span class="s2">* create an instance of this fragment.</span>
+ <span class="s2">*/</span>
+<span class="s0">class </span><span class="s1">HajLocationFragment() : Fragment() {</span>
+
+    <span class="s0">var </span><span class="s1">icons = intArrayOf(R.drawable.arafat</span><span class="s0">, </span><span class="s1">R.drawable.mina</span><span class="s0">, </span><span class="s1">R.drawable.makka</span><span class="s0">, </span><span class="s1">R.drawable.madinah</span>
+    <span class="s1">)</span>
+    <span class="s0">val </span><span class="s1">locationnamelist = ArrayList&lt;String&gt;()</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">locationAdapter: HajLocationAdapter</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">layoutManager: GridLayoutManager</span>
+
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateView(</span>
+            <span class="s1">inflater: LayoutInflater</span><span class="s0">, </span><span class="s1">container: ViewGroup?</span><span class="s0">,</span>
+            <span class="s1">savedInstanceState: Bundle?</span>
+    <span class="s1">): View? {</span>
+        <span class="s3">// Inflate the layout for this fragment</span>
+        <span class="s0">return </span><span class="s1">inflater.inflate(R.layout.fragment_haj_location</span><span class="s0">, </span><span class="s1">container</span><span class="s0">, false</span><span class="s1">)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onViewCreated(view: View</span><span class="s0">, </span><span class="s1">savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onViewCreated(view</span><span class="s0">, </span><span class="s1">savedInstanceState)</span>
+
+        <span class="s1">locationnamelist.add(</span><span class="s4">&quot;Arafat&quot;</span><span class="s1">)</span>
+        <span class="s1">locationnamelist.add(</span><span class="s4">&quot;Mina&quot;</span><span class="s1">)</span>
+        <span class="s1">locationnamelist.add(</span><span class="s4">&quot;Makkah&quot;</span><span class="s1">)</span>
+        <span class="s1">locationnamelist.add(</span><span class="s4">&quot;Madinah&quot;</span><span class="s1">)</span>
+        <span class="s1">locationAdapter = HajLocationAdapter(activity!!</span><span class="s0">, </span><span class="s1">icons</span><span class="s0">, </span><span class="s1">locationnamelist)</span><span class="s0">;</span><span class="s3">//sending parameters to adapter</span>
+        <span class="s1">layoutManager = GridLayoutManager(activity</span><span class="s0">, </span><span class="s5">2</span><span class="s1">)</span>
+
+
+        <span class="s1">rv_location.layoutManager = layoutManager</span>
+        <span class="s1">rv_location.adapter = locationAdapter</span>
+        <span class="s1">layoutManager.orientation = GridLayoutManager.VERTICAL</span><span class="s3">// orientation</span>
+
+        <span class="s1">rv_location.itemAnimator = DefaultItemAnimator()</span>
+        <span class="s1">rv_location.adapter = locationAdapter</span>
+    <span class="s1">}</span>
+
+
+
+<span class="s1">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>HajLocationAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HajLocationAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import android.widget.LinearLayout</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="s0">class </span><span class="s1">HajLocationAdapter(</span><span class="s0">val </span><span class="s1">context: Context</span><span class="s0">, val </span><span class="s1">icons: IntArray</span><span class="s0">,val </span><span class="s1">locationnamelist:ArrayList&lt;String&gt;): RecyclerView.Adapter&lt;HajLocationAdapter.ViewHolder&gt;   () {</span>
+
+
+    <span class="s0">class </span><span class="s1">ViewHolder(v : View) :RecyclerView.ViewHolder(v) {</span>
+
+        <span class="s0">val </span><span class="s1">locationicon : ImageView = v.findViewById(R.id.locationicon)</span>
+        <span class="s0">val </span><span class="s1">locationname : TextView = v.findViewById(R.id.locationname)</span>
+        <span class="s0">val </span><span class="s1">ll_items : LinearLayout = v.findViewById(R.id.ll_items)</span>
+
+
+
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): HajLocationAdapter.ViewHolder {</span>
+        <span class="s0">val </span><span class="s1">itemView = LayoutInflater.from(parent.context).inflate(R.layout.locationitem</span><span class="s0">,</span><span class="s1">parent</span><span class="s0">,false</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">ViewHolder(itemView) </span><span class="s2">//creating viewholder to connect with recyclerview</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: HajLocationAdapter.ViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s1">holder.locationicon.setImageResource(icons.get(position))</span>
+        <span class="s1">holder.locationname.setText(locationnamelist.get(position))</span>
+        <span class="s1">holder.ll_items.setOnClickListener {</span>
+            <span class="s0">val </span><span class="s1">intent = Intent(context</span><span class="s0">, </span><span class="s1">LocationActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+            <span class="s1">intent.putExtra(</span><span class="s3">&quot;position&quot;</span><span class="s0">,</span><span class="s1">position)</span>
+            <span class="s1">context.startActivity(intent)</span>
+
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">locationnamelist.size</span>
+    <span class="s1">}</span>
+
+
+<span class="s1">}</span></pre>
+</body>
+</html>

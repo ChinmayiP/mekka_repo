@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>ConnectActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ConnectActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import androidx.recyclerview.widget.LinearLayoutManager</span>
+<span class="s1">import com.example.myapplication.network.connectitemAdapter</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_assignment3.*</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_connect.*</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_location.*</span>
+<span class="s1">import kotlinx.android.synthetic.main.connectitem.*</span>
+
+<span class="s0">class </span><span class="s1">ConnectActivity : AppCompatActivity() {</span>
+    <span class="s0">val </span><span class="s1">contactnumlist = ArrayList&lt;String&gt;()</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">connectitAdapter: connectitemAdapter</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">layoutManager: LinearLayoutManager</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_connect)</span>
+
+        <span class="s0">val </span><span class="s1">locationName = intent.getIntExtra(</span><span class="s2">&quot;position&quot;</span><span class="s0">,</span><span class="s3">0</span><span class="s1">)</span>
+        <span class="s0">if </span><span class="s1">(locationName == </span><span class="s3">3</span><span class="s1">){</span>
+            <span class="s1">headings.setText(</span><span class="s2">&quot;Organizers&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;8970534324&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9845217703&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9535036773&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;8970534324&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9845217703&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9535036773&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;8970534324&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9845217703&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9535036773&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;8970534324&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9845217703&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9535036773&quot;</span><span class="s1">)</span>
+            <span class="s1">connectitAdapter= connectitemAdapter(contactnumlist)</span><span class="s0">;</span><span class="s4">//sending parameters to adapter</span>
+            <span class="s1">layoutManager= LinearLayoutManager(</span><span class="s0">this</span><span class="s1">)</span>
+            <span class="s1">rv_contact_items.layoutManager=layoutManager </span><span class="s4">//connecting layout and adapter</span>
+            <span class="s1">rv_contact_items.adapter=connectitAdapter</span>
+        <span class="s1">}</span><span class="s0">else  if </span><span class="s1">(locationName == </span><span class="s3">1</span><span class="s1">){</span>
+            <span class="s1">headings.setText(</span><span class="s2">&quot;Pilgrims&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9876543210&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;1234567890&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9988776655&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9876543210&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;1234567890&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9988776655&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9876543210&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;1234567890&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9988776655&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9876543210&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;1234567890&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9988776655&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9876543210&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;1234567890&quot;</span><span class="s1">)</span>
+            <span class="s1">contactnumlist.add(</span><span class="s2">&quot;9988776655&quot;</span><span class="s1">)</span>
+            <span class="s1">connectitAdapter= connectitemAdapter(contactnumlist)</span><span class="s0">;</span><span class="s4">//sending parameters to adapter</span>
+            <span class="s1">layoutManager= LinearLayoutManager(</span><span class="s0">this</span><span class="s1">)</span>
+            <span class="s1">rv_contact_items.layoutManager=layoutManager </span><span class="s4">//connecting layout and adapter</span>
+            <span class="s1">rv_contact_items.adapter=connectitAdapter</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

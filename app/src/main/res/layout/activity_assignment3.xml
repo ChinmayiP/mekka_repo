@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bgnew"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Assignment3Activity">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Must see places in Bangalore"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:textSize="25sp"
+        android:layout_height="wrap_content"></TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:scrollbars="horizontal"
+        android:id="@+id/recyclerview"
+        android:layout_margin="5dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/bgnew"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#D1DDE6"
+
+        android:layout_margin="10dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Here" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_items"
+        android:layout_width="match_parent"
+        android:background="@drawable/bgnew"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

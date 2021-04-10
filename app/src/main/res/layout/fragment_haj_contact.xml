@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/hajsscreen"
+    tools:context=".HajContactFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/hajsscreen">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="-Connect-"
+            android:textColor="#ffffff"
+            android:id="@+id/title"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:paddingBottom="30dp"
+            android:layout_height="wrap_content"></TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_connect"
+            android:paddingTop="40dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/hajsscreen"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

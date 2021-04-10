@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>connectitemAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+connectitemAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication.network</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import com.example.myapplication.HajConnectAdapter</span>
+<span class="s1">import com.example.myapplication.R</span>
+
+<span class="s0">class </span><span class="s1">connectitemAdapter( </span><span class="s0">val </span><span class="s1">connectnamelist:ArrayList&lt;String&gt;) :RecyclerView.Adapter&lt;connectitemAdapter.ViewHolder&gt; (){</span>
+    <span class="s0">class </span><span class="s1">ViewHolder(v:View):RecyclerView.ViewHolder(v) {</span>
+        <span class="s0">val </span><span class="s1">connectcalls : TextView = v.findViewById(R.id.connectcalls)</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): ViewHolder {</span>
+        <span class="s0">val </span><span class="s1">itemView = LayoutInflater.from(parent.context).inflate(R.layout.connectitem</span><span class="s0">,</span><span class="s1">parent</span><span class="s0">,false</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">ViewHolder(itemView)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: ViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s1">holder.connectcalls.setText(connectnamelist.get(position))</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">connectnamelist.size</span>
+    <span class="s1">}</span>
+
+
+<span class="s1">}</span></pre>
+</body>
+</html>

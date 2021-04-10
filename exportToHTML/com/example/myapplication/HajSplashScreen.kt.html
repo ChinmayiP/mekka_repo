@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>HajSplashScreen.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HajSplashScreen.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import android.content.SharedPreferences</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.os.Handler</span>
+
+<span class="s0">class </span><span class="s1">HajSplashScreen : AppCompatActivity() {</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_haj_splash_screen)</span>
+        <span class="s1">Handler().postDelayed({</span>
+            <span class="s0">var </span><span class="s1">sharedPreference : SharedPreferences = </span><span class="s0">this</span><span class="s1">.getSharedPreferences(</span><span class="s2">&quot;kotlinsharedpreference&quot;</span><span class="s0">, </span><span class="s1">Context.MODE_PRIVATE)</span>
+            <span class="s0">if </span><span class="s1">(sharedPreference.getString(</span><span class="s2">&quot;uname_key&quot;</span><span class="s0">,</span><span class="s2">&quot;&quot;</span><span class="s1">).equals(</span><span class="s2">&quot;&quot;</span><span class="s1">)){</span>
+                <span class="s0">val </span><span class="s1">intent = Intent(</span><span class="s0">this, </span><span class="s1">hajLoginscreen::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">startActivity(intent)</span>
+                <span class="s1">finish()</span>
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+
+                <span class="s0">val </span><span class="s1">intent = Intent(</span><span class="s0">this, </span><span class="s1">HajHomescreen::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">startActivity(intent)</span>
+                <span class="s1">finish()</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span><span class="s0">, </span><span class="s3">3000</span><span class="s1">)</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

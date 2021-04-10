@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>APIcallActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+APIcallActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.util.Log</span>
+<span class="s1">import android.widget.*</span>
+<span class="s1">import com.example.myapplication.models.HeroNames</span>
+<span class="s1">import com.example.myapplication.network.RetrofitClient</span>
+<span class="s1">import com.google.gson.GsonBuilder</span>
+<span class="s1">import com.google.gson.JsonParser</span>
+<span class="s1">import kotlinx.coroutines.CoroutineScope</span>
+<span class="s1">import kotlinx.coroutines.Dispatchers</span>
+<span class="s1">import kotlinx.coroutines.launch</span>
+<span class="s1">import kotlinx.coroutines.withContext</span>
+<span class="s1">import retrofit2.Call</span>
+<span class="s1">import retrofit2.Callback</span>
+<span class="s1">import retrofit2.Response</span>
+<span class="s1">import retrofit2.Retrofit</span>
+
+<span class="s0">class </span><span class="s1">APIcallActivity : AppCompatActivity() {</span>
+    <span class="s0">val </span><span class="s1">heroarray = ArrayList&lt;String&gt;()</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">sp_heronames : Spinner</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">click_button : Button</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_a_p_icall)</span>
+
+         <span class="s1">click_button = findViewById(R.id.click) </span><span class="s0">as </span><span class="s1">Button</span>
+         <span class="s1">sp_heronames = findViewById(R.id.sp_heronames) </span><span class="s0">as </span><span class="s1">Spinner</span>
+
+
+        <span class="s1">click_button.setOnClickListener() {</span>
+
+
+        <span class="s1">}</span>
+        <span class="s1">getHeroes()</span>
+    <span class="s1">}</span>
+
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">getHeroes() {</span>
+        <span class="s0">val </span><span class="s1">call = RetrofitClient.instance!!.myApi.getHeroes()</span>
+        <span class="s1">call.enqueue(</span><span class="s0">object </span><span class="s1">: Callback&lt;List&lt;HeroNames&gt;&gt; {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onResponse(call: Call&lt;List&lt;HeroNames&gt;&gt;</span><span class="s0">, </span><span class="s1">response: Response&lt;List&lt;HeroNames&gt;&gt;) {</span>
+
+                <span class="s0">val </span><span class="s1">heroList = response.body()!!</span>
+
+                <span class="s0">for </span><span class="s1">(i </span><span class="s0">in </span><span class="s1">heroList.indices) {</span>
+                    <span class="s1">heroarray.add(i</span><span class="s0">, </span><span class="s1">heroList.get(i).realname.toString())</span>
+                <span class="s1">}</span>
+                <span class="s1">Log.e(</span><span class="s2">&quot;heroes&quot;</span><span class="s0">, </span><span class="s2">&quot;Dataaa&quot; </span><span class="s1">+ heroarray)</span><span class="s0">;</span>
+                <span class="s0">val </span><span class="s1">arrayAdapter = ArrayAdapter(</span><span class="s0">this</span><span class="s1">@APIcallActivity</span><span class="s0">, </span><span class="s1">android.R.layout.simple_dropdown_item_1line</span><span class="s0">,</span><span class="s1">heroarray)</span>
+                <span class="s3">//  val aa = ArrayAdapter(this@LaunchActivity,android.R.layout.simple_spinner_item,list)</span>
+             <span class="s1">sp_heronames.adapter =arrayAdapter</span>
+
+            <span class="s1">}</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onFailure(call: Call&lt;List&lt;HeroNames&gt;&gt;</span><span class="s0">, </span><span class="s1">t: Throwable) {</span>
+                <span class="s1">Toast.makeText(applicationContext</span><span class="s0">, </span><span class="s1">t.message</span><span class="s0">, </span><span class="s1">Toast.LENGTH_SHORT).show()</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span>
+    <span class="s1">}</span>
+    
+<span class="s1">}</span></pre>
+</body>
+</html>

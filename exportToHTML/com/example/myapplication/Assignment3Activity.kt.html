@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Assignment3Activity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Assignment3Activity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.widget.Toast</span>
+<span class="s1">import androidx.appcompat.widget.SearchView</span>
+<span class="s1">import androidx.recyclerview.widget.DefaultItemAnimator</span>
+<span class="s1">import androidx.recyclerview.widget.LinearLayoutManager</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_assignment3.*</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_assignment3.rv_items</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_dashborad.*</span>
+<span class="s1">import java.util.*</span>
+<span class="s1">import kotlin.collections.ArrayList</span>
+
+<span class="s0">class </span><span class="s1">Assignment3Activity : AppCompatActivity() {</span>
+    <span class="s0">val </span><span class="s1">detaillist = ArrayList&lt;String&gt;()</span>
+    <span class="s0">val </span><span class="s1">entrytimings = ArrayList&lt;String&gt;()</span>
+    <span class="s0">val </span><span class="s1">price = ArrayList&lt;String&gt;()</span>
+    <span class="s0">var </span><span class="s1">icons = intArrayOf( R.drawable.lumbini</span><span class="s0">,</span><span class="s1">R.drawable.cunchi</span><span class="s0">,</span><span class="s1">R.drawable.ulsoor</span><span class="s0">,</span><span class="s1">R.drawable.wonderla</span><span class="s0">,</span><span class="s1">R.drawable.commercialstreet)</span>
+
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">detailadapter : dummyadapter</span>
+
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">iconadapter : horizontalAdapter</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">layoutManager: LinearLayoutManager</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_assignment3)</span>
+
+        <span class="s1">detaillist.add(</span><span class="s2">&quot;Lumbini Garden&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s3">//adding data</span>
+        <span class="s1">entrytimings.add(</span><span class="s2">&quot;11:00 AM to 7:00 PM&quot;</span><span class="s1">)</span>
+        <span class="s1">price.add(</span><span class="s2">&quot;INR 50/-&quot;</span><span class="s1">)</span>
+        <span class="s1">detaillist.add(</span><span class="s2">&quot;Cunchi Falls&quot;</span><span class="s1">)</span>
+        <span class="s1">entrytimings.add(</span><span class="s2">&quot;9:00 AM - 6:00 PM&quot;</span><span class="s1">)</span>
+        <span class="s1">price.add(</span><span class="s2">&quot;No Entry Fee, INR 30/-(Parking Fee)&quot;</span><span class="s1">)</span>
+        <span class="s1">detaillist.add(</span><span class="s2">&quot;Ulsoor Lake&quot;</span><span class="s1">)</span>
+        <span class="s1">entrytimings.add(</span><span class="s2">&quot;6:00 AM – 8:00 PM&quot;</span><span class="s1">)</span>
+        <span class="s1">price.add(</span><span class="s2">&quot;No entry fee&quot;</span><span class="s1">)</span>
+        <span class="s1">detaillist.add(</span><span class="s2">&quot;WonderLa Amusement Park&quot;</span><span class="s1">)</span>
+        <span class="s1">entrytimings.add(</span><span class="s2">&quot;11:00 AM - 7:00 PM&quot;</span><span class="s1">)</span>
+        <span class="s1">price.add(</span><span class="s2">&quot;INR 890/-&quot;</span><span class="s1">)</span>
+        <span class="s1">detaillist.add(</span><span class="s2">&quot;Commercial Street&quot;</span><span class="s1">)</span>
+        <span class="s1">entrytimings.add(</span><span class="s2">&quot;11:00 AM - 8:00 PM&quot;</span><span class="s1">)</span>
+        <span class="s1">price.add(</span><span class="s2">&quot;No Entry Fee&quot;</span><span class="s1">)</span>
+        <span class="s1">iconadapter = horizontalAdapter(icons)</span>
+        <span class="s1">layoutManager = LinearLayoutManager(</span><span class="s0">this</span><span class="s1">)</span>
+        <span class="s1">recyclerview.layoutManager=layoutManager</span>
+        <span class="s1">recyclerview.adapter=iconadapter</span>
+        <span class="s1">layoutManager.orientation = LinearLayoutManager.HORIZONTAL</span>
+        <span class="s1">recyclerview.itemAnimator=DefaultItemAnimator()</span>
+        <span class="s1">recyclerview.adapter=iconadapter</span>
+
+        <span class="s1">detailadapter= dummyadapter(detaillist</span><span class="s0">,</span><span class="s1">icons</span><span class="s0">,</span><span class="s1">entrytimings</span><span class="s0">,</span><span class="s1">price)</span><span class="s0">;</span><span class="s3">//sending parameters to adapter</span>
+        <span class="s1">layoutManager=LinearLayoutManager(</span><span class="s0">this</span><span class="s1">)</span>
+        <span class="s1">rv_items.layoutManager=layoutManager </span><span class="s3">//connecting layout and adapter</span>
+        <span class="s1">rv_items.adapter=detailadapter</span>
+        <span class="s1">layoutManager.orientation = LinearLayoutManager.VERTICAL </span><span class="s3">// orientation</span>
+        <span class="s1">rv_items.itemAnimator = DefaultItemAnimator()</span><span class="s3">//RecyclerView comes with these basic animations out-of-the-box using the DefaultItemAnimator class</span>
+        <span class="s1">rv_items.adapter = detailadapter</span>
+
+        
+
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

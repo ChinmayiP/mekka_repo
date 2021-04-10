@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>AnimalAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AnimalAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import kotlinx.android.synthetic.main.animal_list_item.view.*</span>
+
+<span class="s0">class </span><span class="s1">AnimalAdapter(</span><span class="s0">val </span><span class="s1">items : ArrayList&lt;String&gt;</span><span class="s0">, val </span><span class="s1">context: Context) : RecyclerView.Adapter&lt;ViewHolder&gt;() {</span>
+
+    <span class="s2">// Gets the number of animals in the list</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">items.size</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Inflates the item views</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): ViewHolder {</span>
+        <span class="s0">return </span><span class="s1">ViewHolder(LayoutInflater.from(context).inflate(R.layout.animal_list_item</span><span class="s0">, </span><span class="s1">parent</span><span class="s0">, false</span><span class="s1">))</span>
+    <span class="s1">}</span>
+
+    <span class="s2">// Binds each animal in the ArrayList to a view</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: ViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s1">holder?.tvAnimalType?.text = items.get(position)</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s0">class </span><span class="s1">ViewHolder (view: View) : RecyclerView.ViewHolder(view) {</span>
+    <span class="s2">// Holds the TextView that will add each animal to</span>
+    <span class="s0">val </span><span class="s1">tvAnimalType = view.tv_animal_type</span>
+<span class="s1">}</span>
+
+</pre>
+</body>
+</html>

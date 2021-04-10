@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>LaunchscreenActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+LaunchscreenActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.res.ColorStateList</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import androidx.core.content.ContextCompat</span>
+<span class="s1">import androidx.fragment.app.Fragment</span>
+<span class="s1">import com.google.android.material.bottomnavigation.BottomNavigationView</span>
+
+<span class="s1">import kotlinx.android.synthetic.main.activity_launchscreen.*</span>
+
+<span class="s0">class </span><span class="s1">LaunchscreenActivity : AppCompatActivity() {</span>
+    <span class="s0">var </span><span class="s1">fragment : Fragment?=</span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">iconsColorStates: ColorStateList? = </span><span class="s0">null</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_launchscreen)</span>
+
+
+<span class="s2">// menu.findItem(R.id.navigation_profile).setIcon(R.drawable.ic_bottom_profile_white);</span>
+        <span class="s1">iconsColorStates = ColorStateList(arrayOf(intArrayOf(-android.R.attr.state_checked)</span><span class="s0">, </span><span class="s1">intArrayOf(android.R.attr.state_checked))</span><span class="s0">, </span><span class="s1">intArrayOf(</span>
+                <span class="s1">ContextCompat.getColor(</span><span class="s0">this, </span><span class="s1">R.color.black)</span><span class="s0">,</span>
+                <span class="s1">ContextCompat.getColor(</span><span class="s0">this, </span><span class="s1">R.color.bluelight)</span>
+        <span class="s1">))</span>
+        <span class="s1">bv_items.setItemIconTintList(iconsColorStates)</span>
+        <span class="s1">bv_items.setItemTextColor(iconsColorStates)</span>
+        <span class="s1">bv_items.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)</span>
+        <span class="s1">loadHomefragment()</span>
+    <span class="s1">}</span>
+    <span class="s1">public </span><span class="s0">fun </span><span class="s1">loadHomefragment(){</span>
+        <span class="s1">fragment = HomeFragment()</span>
+        <span class="s1">loadFragment(fragment)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item -&gt;</span>
+        <span class="s0">when </span><span class="s1">(item.itemId) {</span>
+            <span class="s1">R.id.home -&gt; {</span>
+                <span class="s1">fragment = HomeFragment()</span>
+                <span class="s1">item.setIcon(R.drawable.ic_baseline_home_24)</span>
+
+            <span class="s1">}</span>
+            <span class="s1">R.id.profile -&gt; {</span>
+                <span class="s1">fragment = ProfileFragment()</span>
+                <span class="s1">item.setIcon(R.drawable.ic_round_person_24)</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span>
+        <span class="s1">loadFragment(fragment)</span>
+    <span class="s1">}</span>
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">loadFragment(fragment: Fragment?): Boolean {</span>
+        <span class="s2">//switching fragment</span>
+        <span class="s0">if </span><span class="s1">(fragment != </span><span class="s0">null</span><span class="s1">) {</span>
+            <span class="s1">supportFragmentManager</span>
+                <span class="s1">.beginTransaction()</span>
+                <span class="s1">.replace(R.id.fragcontainer</span><span class="s0">, </span><span class="s1">fragment).addToBackStack(</span><span class="s0">null</span><span class="s1">)</span>
+                <span class="s1">.commit()</span>
+            <span class="s0">return true</span>
+        <span class="s1">}</span>
+        <span class="s0">return false</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>

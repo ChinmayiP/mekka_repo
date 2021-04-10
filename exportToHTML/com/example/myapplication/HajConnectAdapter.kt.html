@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>HajConnectAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HajConnectAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.app.Activity</span>
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.AdapterView</span>
+<span class="s1">import android.widget.Toast</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import androidx.core.content.ContextCompat.startActivity</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="s0">class </span><span class="s1">HajConnectAdapter(</span><span class="s0">val </span><span class="s1">context: Context</span><span class="s0">,val </span><span class="s1">icons: IntArray</span><span class="s0">,val </span><span class="s1">connectnamelist:ArrayList&lt;String&gt;): RecyclerView.Adapter&lt;HajConnectAdapter.ViewHolder&gt;   ()  {</span>
+    <span class="s0">class </span><span class="s1">ViewHolder(v : View) :RecyclerView.ViewHolder(v) {</span>
+
+        <span class="s0">val </span><span class="s1">connecticon : ImageView = v.findViewById(R.id.connecticon)</span>
+        <span class="s0">val </span><span class="s1">connectname : TextView = v.findViewById(R.id.connectname)</span>
+
+
+
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): ViewHolder {</span>
+        <span class="s0">val </span><span class="s1">itemView = LayoutInflater.from(parent.context).inflate(R.layout.connectitems</span><span class="s0">,</span><span class="s1">parent</span><span class="s0">,false</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">ViewHolder(itemView) </span><span class="s2">//creating viewholder to connect with recyclerview</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: ViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s2">//to set data at particular position</span>
+        <span class="s1">holder.connecticon.setImageResource(icons.get(position))</span>
+        <span class="s1">holder.connectname.setText(connectnamelist.get(position))</span>
+        <span class="s1">holder.connecticon .setOnClickListener {</span>
+
+            <span class="s0">if</span><span class="s1">(position==</span><span class="s3">2</span><span class="s1">){</span>
+                <span class="s0">val </span><span class="s1">intent = Intent(context</span><span class="s0">, </span><span class="s1">ChatActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">context.startActivity(intent)</span>
+            <span class="s1">}</span><span class="s0">else if</span><span class="s1">(position==</span><span class="s3">0</span><span class="s1">){</span>
+                <span class="s0">val </span><span class="s1">intent = Intent(context</span><span class="s0">, </span><span class="s1">ScanActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">context.startActivity(intent)</span>
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+                <span class="s0">val </span><span class="s1">intent = Intent(context</span><span class="s0">, </span><span class="s1">ConnectActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">intent.putExtra(</span><span class="s4">&quot;position&quot;</span><span class="s0">,</span><span class="s1">position)</span>
+                <span class="s1">context.startActivity(intent)</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">connectnamelist.size</span>
+    <span class="s1">}</span>
+
+
+<span class="s1">}</span>
+
+
+</pre>
+</body>
+</html>

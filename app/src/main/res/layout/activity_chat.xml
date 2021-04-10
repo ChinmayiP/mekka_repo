@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/hajsscreen"
+    tools:context=".ChatActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/chatlay"
+        android:orientation="horizontal"
+        android:layout_height="800dp"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@+id/chatlay"
+        android:background="@color/white"
+        android:layout_height="50dp">
+        <EditText
+            android:layout_width="wrap_content"
+            android:hint="Type here"
+            android:paddingRight="280dp"
+            android:layout_height="match_parent"></EditText>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_baseline_send_24"
+            android:layout_height="match_parent"></ImageButton>
+    </LinearLayout>
+
+</RelativeLayout>

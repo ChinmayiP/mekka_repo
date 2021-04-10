@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+
+
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="220dp"
+            android:id="@+id/connectcalls"
+            android:paddingLeft="30dp"
+            android:text="987654321"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_baseline_call_24"></ImageView>
+        <ImageView
+            android:layout_width="30dp"
+            android:src="@drawable/ic_baseline_message_24"
+
+            android:layout_height="30dp">
+
+        </ImageView>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>ActivityDashboradBindingImpl.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ActivityDashboradBindingImpl.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication.databinding</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.example.myapplication.R</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.example.myapplication.BR</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.annotation.NonNull</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.annotation.Nullable</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s1">@SuppressWarnings(</span><span class="s2">&quot;unchecked&quot;</span><span class="s1">)</span>
+<span class="s0">public class </span><span class="s1">ActivityDashboradBindingImpl </span><span class="s0">extends </span><span class="s1">ActivityDashboradBinding  {</span>
+
+    <span class="s1">@Nullable</span>
+    <span class="s0">private static final </span><span class="s1">androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes</span><span class="s0">;</span>
+    <span class="s1">@Nullable</span>
+    <span class="s0">private static final </span><span class="s1">android.util.SparseIntArray sViewsWithIds</span><span class="s0">;</span>
+    <span class="s0">static </span><span class="s1">{</span>
+        <span class="s1">sIncludes = </span><span class="s0">null;</span>
+        <span class="s1">sViewsWithIds = </span><span class="s0">new </span><span class="s1">android.util.SparseIntArray()</span><span class="s0">;</span>
+        <span class="s1">sViewsWithIds.put(R.id.title</span><span class="s0">, </span><span class="s3">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">sViewsWithIds.put(R.id.rv_items</span><span class="s0">, </span><span class="s3">2</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s4">// views</span>
+    <span class="s1">@NonNull</span>
+    <span class="s0">private final </span><span class="s1">android.widget.LinearLayout mboundView0</span><span class="s0">;</span>
+    <span class="s4">// variables</span>
+    <span class="s4">// values</span>
+    <span class="s4">// listeners</span>
+    <span class="s4">// Inverse Binding Event Handlers</span>
+
+    <span class="s0">public </span><span class="s1">ActivityDashboradBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent</span><span class="s0">, </span><span class="s1">@NonNull View root) {</span>
+        <span class="s0">this</span><span class="s1">(bindingComponent</span><span class="s0">, </span><span class="s1">root</span><span class="s0">, </span><span class="s1">mapBindings(bindingComponent</span><span class="s0">, </span><span class="s1">root</span><span class="s0">, </span><span class="s3">3</span><span class="s0">, </span><span class="s1">sIncludes</span><span class="s0">, </span><span class="s1">sViewsWithIds))</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">private </span><span class="s1">ActivityDashboradBindingImpl(androidx.databinding.DataBindingComponent bindingComponent</span><span class="s0">, </span><span class="s1">View root</span><span class="s0">, </span><span class="s1">Object[] bindings) {</span>
+        <span class="s0">super</span><span class="s1">(bindingComponent</span><span class="s0">, </span><span class="s1">root</span><span class="s0">, </span><span class="s3">0</span>
+            <span class="s0">, </span><span class="s1">(androidx.recyclerview.widget.RecyclerView) bindings[</span><span class="s3">2</span><span class="s1">]</span>
+            <span class="s0">, </span><span class="s1">(android.widget.TextView) bindings[</span><span class="s3">1</span><span class="s1">]</span>
+            <span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.mboundView0 = (android.widget.LinearLayout) bindings[</span><span class="s3">0</span><span class="s1">]</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.mboundView0.setTag(</span><span class="s0">null</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">setRootTag(root)</span><span class="s0">;</span>
+        <span class="s4">// listeners</span>
+        <span class="s1">invalidateAll()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">invalidateAll() {</span>
+        <span class="s0">synchronized</span><span class="s1">(</span><span class="s0">this</span><span class="s1">) {</span>
+                <span class="s1">mDirtyFlags = </span><span class="s3">0x1L</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">requestRebind()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public boolean </span><span class="s1">hasPendingBindings() {</span>
+        <span class="s0">synchronized</span><span class="s1">(</span><span class="s0">this</span><span class="s1">) {</span>
+            <span class="s0">if </span><span class="s1">(mDirtyFlags != </span><span class="s3">0</span><span class="s1">) {</span>
+                <span class="s0">return true;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return false;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public boolean </span><span class="s1">setVariable(</span><span class="s0">int </span><span class="s1">variableId</span><span class="s0">, </span><span class="s1">@Nullable Object variable)  {</span>
+        <span class="s0">boolean </span><span class="s1">variableSet = </span><span class="s0">true;</span>
+            <span class="s0">return </span><span class="s1">variableSet</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected boolean </span><span class="s1">onFieldChange(</span><span class="s0">int </span><span class="s1">localFieldId</span><span class="s0">, </span><span class="s1">Object object</span><span class="s0">, int </span><span class="s1">fieldId) {</span>
+        <span class="s0">switch </span><span class="s1">(localFieldId) {</span>
+        <span class="s1">}</span>
+        <span class="s0">return false;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">executeBindings() {</span>
+        <span class="s0">long </span><span class="s1">dirtyFlags = </span><span class="s3">0</span><span class="s0">;</span>
+        <span class="s0">synchronized</span><span class="s1">(</span><span class="s0">this</span><span class="s1">) {</span>
+            <span class="s1">dirtyFlags = mDirtyFlags</span><span class="s0">;</span>
+            <span class="s1">mDirtyFlags = </span><span class="s3">0</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s4">// batch finished</span>
+    <span class="s1">}</span>
+    <span class="s4">// Listener Stub Implementations</span>
+    <span class="s4">// callback impls</span>
+    <span class="s4">// dirty flag</span>
+    <span class="s0">private  long </span><span class="s1">mDirtyFlags = </span><span class="s3">0xffffffffffffffffL</span><span class="s0">;</span>
+    <span class="s4">/* flag mapping 
+        flag 0 (0x1L): null 
+    flag mapping end*/</span>
+    <span class="s4">//end</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

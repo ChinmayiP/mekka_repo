@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>HomeFragment.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #629755; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HomeFragment.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import androidx.fragment.app.Fragment</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import androidx.recyclerview.widget.DefaultItemAnimator</span>
+<span class="s1">import androidx.recyclerview.widget.LinearLayoutManager</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_dashborad.*</span>
+
+<span class="s2">// TODO: Rename parameter arguments, choose names that match</span>
+<span class="s2">// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER</span>
+<span class="s1">private const </span><span class="s0">val </span><span class="s1">ARG_PARAM1 = </span><span class="s3">&quot;param1&quot;</span>
+<span class="s1">private const </span><span class="s0">val </span><span class="s1">ARG_PARAM2 = </span><span class="s3">&quot;param2&quot;</span>
+
+<span class="s4">/**</span>
+ <span class="s4">* A simple [Fragment] subclass.</span>
+ <span class="s4">* Use the [HomeFragment.newInstance] factory method to</span>
+ <span class="s4">* create an instance of this fragment.</span>
+ <span class="s4">*/</span>
+<span class="s0">class </span><span class="s1">HomeFragment : Fragment() {</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateView(</span>
+        <span class="s1">inflater: LayoutInflater</span><span class="s0">, </span><span class="s1">container: ViewGroup?</span><span class="s0">,</span>
+        <span class="s1">savedInstanceState: Bundle?</span>
+    <span class="s1">): View? {</span>
+        <span class="s2">// Inflate the layout for this fragment</span>
+        <span class="s0">return </span><span class="s1">inflater.inflate(R.layout.fragment_home</span><span class="s0">, </span><span class="s1">container</span><span class="s0">, false</span><span class="s1">)</span>
+
+
+    <span class="s1">}</span>
+
+
+
+<span class="s1">}</span></pre>
+</body>
+</html>

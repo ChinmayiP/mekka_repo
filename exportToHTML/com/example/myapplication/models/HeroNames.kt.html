@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>HeroNames.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HeroNames.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication.models</span>
+
+<span class="s1">import android.os.Parcel</span>
+<span class="s1">import android.os.Parcelable</span>
+
+<span class="s0">class </span><span class="s1">HeroNames() : Parcelable {</span>
+
+    <span class="s0">var </span><span class="s1">name: String? = </span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">realname: String? = </span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">team: String? = </span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">firstappearance: String? = </span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">createdby: String? = </span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">publisher: String? = </span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">imageurl: String? = </span><span class="s0">null</span>
+    <span class="s0">var </span><span class="s1">bio: String? = </span><span class="s0">null</span>
+
+    <span class="s1">constructor(parcel: Parcel) : </span><span class="s0">this</span><span class="s1">() {</span>
+        <span class="s1">name = parcel.readString()</span>
+        <span class="s1">realname = parcel.readString()</span>
+        <span class="s1">team = parcel.readString()</span>
+        <span class="s1">firstappearance = parcel.readString()</span>
+        <span class="s1">createdby = parcel.readString()</span>
+        <span class="s1">publisher = parcel.readString()</span>
+        <span class="s1">imageurl = parcel.readString()</span>
+        <span class="s1">bio = parcel.readString()</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">writeToParcel(parcel: Parcel</span><span class="s0">, </span><span class="s1">flags: Int) {</span>
+        <span class="s1">parcel.writeString(name)</span>
+        <span class="s1">parcel.writeString(realname)</span>
+        <span class="s1">parcel.writeString(team)</span>
+        <span class="s1">parcel.writeString(firstappearance)</span>
+        <span class="s1">parcel.writeString(createdby)</span>
+        <span class="s1">parcel.writeString(publisher)</span>
+        <span class="s1">parcel.writeString(imageurl)</span>
+        <span class="s1">parcel.writeString(bio)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">describeContents(): Int {</span>
+        <span class="s0">return </span><span class="s2">0</span>
+    <span class="s1">}</span>
+
+    <span class="s1">companion </span><span class="s0">object </span><span class="s1">CREATOR : Parcelable.Creator&lt;HeroNames&gt; {</span>
+        <span class="s1">override </span><span class="s0">fun </span><span class="s1">createFromParcel(parcel: Parcel): HeroNames {</span>
+            <span class="s0">return </span><span class="s1">HeroNames(parcel)</span>
+        <span class="s1">}</span>
+
+        <span class="s1">override </span><span class="s0">fun </span><span class="s1">newArray(size: Int): Array&lt;HeroNames?&gt; {</span>
+            <span class="s0">return </span><span class="s1">arrayOfNulls(size)</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>

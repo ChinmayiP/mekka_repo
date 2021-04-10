@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.widget.Button</span>
+<span class="s1">import android.widget.EditText</span>
+<span class="s1">import android.widget.Toast</span>
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity() {</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span>
+
+        <span class="s0">var </span><span class="s1">u_name = findViewById(R.id.et_user_name) </span><span class="s0">as </span><span class="s1">EditText</span><span class="s0">;</span>
+        <span class="s0">var </span><span class="s1">p_word = findViewById(R.id.et_password) </span><span class="s0">as </span><span class="s1">EditText</span><span class="s0">;</span>
+        <span class="s0">var </span><span class="s1">submitbutton = findViewById(R.id.login) </span><span class="s0">as </span><span class="s1">Button</span><span class="s0">;</span>
+        <span class="s1">submitbutton.setOnClickListener(){</span>
+            <span class="s0">var </span><span class="s1">uname = u_name.text</span><span class="s0">;</span>
+            <span class="s0">var </span><span class="s1">pwd = p_word.text</span><span class="s0">;</span>
+            <span class="s0">if</span><span class="s1">(uname.toString() == </span><span class="s2">&quot;Chinmayi&quot; </span><span class="s1">&amp;&amp; pwd.toString() ==</span><span class="s2">&quot;Chinmayi&quot;</span><span class="s1">){</span>
+                <span class="s1">intent = Intent(</span><span class="s0">this, </span><span class="s1">home::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">startActivity(intent)</span><span class="s0">;</span>
+                <span class="s1">u_name.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">p_word.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s0">else</span>
+            <span class="s1">{</span>
+                <span class="s1">Toast.makeText(applicationContext</span><span class="s0">,</span><span class="s2">&quot;invalid login&quot;</span><span class="s0">,</span><span class="s1">Toast.LENGTH_SHORT).show()</span>
+            <span class="s1">}</span>
+
+
+
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

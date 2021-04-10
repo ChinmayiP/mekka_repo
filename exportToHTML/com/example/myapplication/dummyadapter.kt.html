@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>dummyadapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+dummyadapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="s0">class </span><span class="s1">dummyadapter (</span><span class="s0">val </span><span class="s1">dummylist:ArrayList&lt;String&gt;</span><span class="s0">,val </span><span class="s1">icons: IntArray</span><span class="s0">,val </span><span class="s1">entrytimings : ArrayList&lt;String&gt;</span><span class="s0">,val </span><span class="s1">price : ArrayList&lt;String&gt;): RecyclerView.Adapter&lt;dummyadapter.ViewHolder&gt;() {</span>
+    <span class="s0">class </span><span class="s1">ViewHolder(v : View) :RecyclerView.ViewHolder(v){</span>
+        <span class="s0">val </span><span class="s1">tv_animal_type : TextView = v.findViewById(R.id.tv_animal_type)</span>
+        <span class="s0">val </span><span class="s1">iv_profile : ImageView = v.findViewById(R.id.iv_profile)</span>
+        <span class="s0">val </span><span class="s1">tv_timings :TextView = v.findViewById(R.id.tv_timings)</span>
+        <span class="s0">val </span><span class="s1">tv_entryfee : TextView = v.findViewById(R.id.tv_entryfee)</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): dummyadapter.ViewHolder {</span>
+        <span class="s0">val </span><span class="s1">itemView = LayoutInflater.from(parent.context).inflate(R.layout.animal_list_item</span><span class="s0">,</span><span class="s1">parent</span><span class="s0">,false</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">ViewHolder(itemView) </span><span class="s2">//creating viewholder to connect with recyclerview</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: dummyadapter.ViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s1">holder.tv_animal_type.setText(dummylist.get(position))</span><span class="s2">//to set data at particular position</span>
+        <span class="s1">holder.iv_profile.setImageResource(icons.get(position))</span>
+        <span class="s1">holder.tv_timings.setText(entrytimings.get(position))</span>
+        <span class="s1">holder.tv_entryfee.setText(price.get(position))</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+
+        <span class="s0">return </span><span class="s1">dummylist.size </span><span class="s2">//to get length</span>
+    <span class="s1">}</span>
+
+
+<span class="s1">}</span></pre>
+</body>
+</html>

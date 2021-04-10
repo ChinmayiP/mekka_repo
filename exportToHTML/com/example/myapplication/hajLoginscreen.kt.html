@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>hajLoginscreen.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+hajLoginscreen.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import android.content.SharedPreferences</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.widget.*</span>
+
+<span class="s0">class </span><span class="s1">hajLoginscreen : AppCompatActivity() {</span>
+    <span class="s0">var </span><span class="s1">radioGroup: RadioGroup? = </span><span class="s0">null</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">radioButton: RadioButton</span>
+    <span class="s1">private lateinit </span><span class="s0">var </span><span class="s1">button: Button</span>
+    <span class="s1">public </span><span class="s0">val </span><span class="s1">sharedPrefFile = </span><span class="s2">&quot;kotlinsharedpreference&quot;</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_haj_loginscreen)</span>
+
+        <span class="s1">radioGroup = findViewById(R.id.groupradio)</span>
+        <span class="s1">button = findViewById(R.id.login)</span>
+        <span class="s0">var </span><span class="s1">u_name = findViewById(R.id.et_user_name) </span><span class="s0">as </span><span class="s1">EditText</span><span class="s0">;</span>
+        <span class="s0">var </span><span class="s1">p_word = findViewById(R.id.et_password) </span><span class="s0">as </span><span class="s1">EditText</span><span class="s0">;</span>
+
+
+        <span class="s3">//editor.putString(&quot;uname_key&quot;,&quot;chinmayi.p@incture.com&quot;)</span>
+        <span class="s3">//editor.putString(&quot;pwd_key&quot;,&quot;chinnu123&quot;)</span>
+        <span class="s3">//editor.putString(&quot;name_key&quot;,&quot;Chinmayi prakash&quot;)</span>
+        <span class="s3">//editor.putString(&quot;contactno_key&quot;,&quot;987654321&quot;)</span>
+        <span class="s3">//editor.putString(&quot;emergency_key&quot;,&quot;Afraa farheen&quot;)</span>
+
+        <span class="s3">//editor.apply()</span>
+        <span class="s3">//editor.commit()</span>
+        <span class="s1">button.setOnClickListener(View.OnClickListener {</span>
+            <span class="s0">val </span><span class="s1">uname:String = (u_name.text.toString())</span>
+            <span class="s0">val </span><span class="s1">pwd:String = p_word.text.toString()</span>
+            <span class="s0">val </span><span class="s1">sharedPreferences: SharedPreferences = </span><span class="s0">this</span><span class="s1">.getSharedPreferences(sharedPrefFile</span><span class="s0">, </span><span class="s1">Context.MODE_PRIVATE)</span>
+            <span class="s0">val </span><span class="s1">editor: SharedPreferences.Editor =  sharedPreferences.edit()</span>
+            <span class="s1">editor.putString(</span><span class="s2">&quot;uname_key&quot;</span><span class="s0">,</span><span class="s1">uname)</span>
+            <span class="s1">editor.apply()</span>
+            <span class="s1">editor.commit()</span>
+           <span class="s3">// val sharedIdValue = sharedPreferences.getString(&quot;uname_key&quot;,&quot;defaultname&quot;)</span>
+          <span class="s3">//  val sharedNameValue = sharedPreferences.getString(&quot;pwd_key&quot;,&quot;defaultname&quot;)</span>
+            <span class="s0">if</span><span class="s1">(uname.equals(</span><span class="s2">&quot;afraa@gmail.com&quot;</span><span class="s1">) &amp;&amp; pwd.equals(</span><span class="s2">&quot;afraa123&quot;</span><span class="s1">)){</span>
+                <span class="s1">intent = Intent(</span><span class="s0">this, </span><span class="s1">HajHomescreen::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">startActivity(intent)</span><span class="s0">;</span>
+                <span class="s1">u_name.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">p_word.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+                <span class="s1">Toast.makeText(applicationContext</span><span class="s0">,</span><span class="s2">&quot;invalid login&quot;</span><span class="s0">,</span><span class="s1">Toast.LENGTH_SHORT).show()</span>
+            <span class="s1">}</span>
+          <span class="s3">//  val intSelectButton: Int = radioGroup!!.checkedRadioButtonId</span>
+         <span class="s3">//   radioButton = findViewById(intSelectButton)</span>
+        <span class="s3">//    Toast.makeText(baseContext, radioButton.text, Toast.LENGTH_SHORT).show()</span>
+        <span class="s1">})</span>
+
+
+
+
+
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

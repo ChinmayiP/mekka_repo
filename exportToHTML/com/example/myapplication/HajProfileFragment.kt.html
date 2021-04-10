@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>HajProfileFragment.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #808080;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HajProfileFragment.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import androidx.fragment.app.Fragment</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import androidx.recyclerview.widget.DefaultItemAnimator</span>
+<span class="s1">import androidx.recyclerview.widget.GridLayoutManager</span>
+<span class="s1">import kotlinx.android.synthetic.main.fragment_haj_profile.*</span>
+
+
+<span class="s2">/**</span>
+ <span class="s2">* A simple [Fragment] subclass.</span>
+ <span class="s2">* Use the [HajProfileFragment.newInstance] factory method to</span>
+ <span class="s2">* create an instance of this fragment.</span>
+ <span class="s2">*/</span>
+<span class="s0">class </span><span class="s1">HajProfileFragment : Fragment() {</span>
+
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateView(</span>
+        <span class="s1">inflater: LayoutInflater</span><span class="s0">, </span><span class="s1">container: ViewGroup?</span><span class="s0">,</span>
+        <span class="s1">savedInstanceState: Bundle?</span>
+    <span class="s1">): View? {</span>
+        <span class="s3">// Inflate the layout for this fragment</span>
+        <span class="s0">return </span><span class="s1">inflater.inflate(R.layout.fragment_haj_profile</span><span class="s0">, </span><span class="s1">container</span><span class="s0">, false</span><span class="s1">)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onViewCreated(view: View</span><span class="s0">, </span><span class="s1">savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onViewCreated(view</span><span class="s0">, </span><span class="s1">savedInstanceState)</span>
+        <span class="s1">Name.setText(</span><span class="s4">&quot;Afraa Farheen&quot;</span><span class="s1">)</span>
+        <span class="s1">profileemail.setText(</span><span class="s4">&quot;afraa@gmail.com&quot;</span><span class="s1">)</span>
+        <span class="s1">contactno.setText(</span><span class="s4">&quot;9876543212&quot;</span><span class="s1">)</span>
+        <span class="s1">emergencycontact.setText(</span><span class="s4">&quot;8970564325&quot;</span><span class="s1">)</span>
+
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>

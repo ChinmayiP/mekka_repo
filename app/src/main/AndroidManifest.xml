@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/hajicon"
+        android:label="Haj Guide"
+        android:roundIcon="@drawable/hajicon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ScanActivity" />
+        <activity android:name=".ConnectActivity" />
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".HajHomescreen" />
+        <activity android:name=".hajLoginscreen" />
+        <activity android:name=".HajSplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DetailsActivity" />
+        <activity android:name=".APIcallActivity" />
+        <activity android:name=".ViewPagerActivity" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".PreferencesActivity" />
+        <activity android:name=".LaunchscreenActivity" />
+        <activity android:name=".Assignment3Activity" />
+        <activity android:name=".DashboradActivity" />
+        <activity android:name=".home" />
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

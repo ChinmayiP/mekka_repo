@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>home.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+home.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import androidx.recyclerview.widget.GridLayoutManager</span>
+<span class="s1">import androidx.recyclerview.widget.LinearLayoutManager</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_home.*</span>
+
+<span class="s0">val </span><span class="s1">animals: ArrayList&lt;String&gt; = ArrayList()</span>
+<span class="s0">class </span><span class="s1">home : AppCompatActivity() {</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_home)</span>
+
+        <span class="s1">addAnimals()</span>
+
+        <span class="s1">rv_animal_list.layoutManager = LinearLayoutManager(</span><span class="s0">this</span><span class="s1">)</span>
+        <span class="s1">rv_animal_list.layoutManager = GridLayoutManager(</span><span class="s0">this, </span><span class="s2">1</span><span class="s1">)</span>
+        <span class="s1">rv_animal_list.adapter = AnimalAdapter(animals</span><span class="s0">, this</span><span class="s1">)</span>
+    <span class="s1">}</span>
+    <span class="s0">fun </span><span class="s1">addAnimals() {</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;dog&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;cat&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;owl&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;cheetah&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;raccoon&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;bird&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;snake&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;lizard&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;hamster&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;bear&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;lion&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;tiger&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;horse&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;frog&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;fish&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;shark&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;turtle&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;elephant&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;cow&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;beaver&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;bison&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;porcupine&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;rat&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;mouse&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;goose&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;deer&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;fox&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;moose&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;buffalo&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;monkey&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;penguin&quot;</span><span class="s1">)</span>
+        <span class="s1">animals.add(</span><span class="s3">&quot;parrot&quot;</span><span class="s1">)</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

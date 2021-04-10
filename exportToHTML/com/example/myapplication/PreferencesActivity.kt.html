@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>PreferencesActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+PreferencesActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.myapplication</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.content.SharedPreferences</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.widget.Button</span>
+<span class="s1">import android.widget.EditText</span>
+<span class="s1">import android.widget.TextView</span>
+
+<span class="s0">class </span><span class="s1">PreferencesActivity : AppCompatActivity() {</span>
+    <span class="s1">public </span><span class="s0">val </span><span class="s1">sharedPrefFile = </span><span class="s2">&quot;kotlinsharedpreference&quot;</span>
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_preferences)</span>
+
+        <span class="s0">val </span><span class="s1">inputId = findViewById&lt;EditText&gt;(R.id.editId)</span>
+        <span class="s0">val </span><span class="s1">inputName = findViewById&lt;EditText&gt;(R.id.editName)</span>
+        <span class="s0">val </span><span class="s1">outputId = findViewById&lt;TextView&gt;(R.id.textViewShowId)</span>
+        <span class="s0">val </span><span class="s1">outputName = findViewById&lt;TextView&gt;(R.id.textViewShowName)</span>
+
+        <span class="s0">val </span><span class="s1">btnSave = findViewById&lt;Button&gt;(R.id.save)</span>
+        <span class="s0">val </span><span class="s1">btnView = findViewById&lt;Button&gt;(R.id.view)</span>
+        <span class="s0">val </span><span class="s1">btnClear = findViewById&lt;Button&gt;(R.id.clear)</span>
+
+        <span class="s0">val </span><span class="s1">sharedPreferences: SharedPreferences = </span><span class="s0">this</span><span class="s1">.getSharedPreferences(sharedPrefFile</span><span class="s0">, </span><span class="s1">Context.MODE_PRIVATE)</span>
+        <span class="s1">btnSave.setOnClickListener(View.OnClickListener {</span>
+            <span class="s0">val </span><span class="s1">id:Int = Integer.parseInt(inputId.text.toString())</span>
+            <span class="s0">val </span><span class="s1">name:String = inputName.text.toString()</span>
+            <span class="s0">val </span><span class="s1">editor: SharedPreferences.Editor =  sharedPreferences.edit()</span>
+            <span class="s1">editor.putInt(</span><span class="s2">&quot;id_key&quot;</span><span class="s0">,</span><span class="s1">id)</span>
+            <span class="s1">editor.putString(</span><span class="s2">&quot;name_key&quot;</span><span class="s0">,</span><span class="s1">name)</span>
+            <span class="s1">editor.apply()</span>
+            <span class="s1">editor.commit()</span>
+        <span class="s1">})</span>
+
+        <span class="s1">btnView.setOnClickListener {</span>
+            <span class="s0">val </span><span class="s1">sharedIdValue = sharedPreferences.getInt(</span><span class="s2">&quot;id_key&quot;</span><span class="s0">,</span><span class="s3">0</span><span class="s1">)</span>
+            <span class="s0">val </span><span class="s1">sharedNameValue = sharedPreferences.getString(</span><span class="s2">&quot;name_key&quot;</span><span class="s0">,</span><span class="s2">&quot;defaultname&quot;</span><span class="s1">)</span>
+            <span class="s0">if</span><span class="s1">(sharedIdValue.equals(</span><span class="s3">0</span><span class="s1">) &amp;&amp; sharedNameValue.equals(</span><span class="s2">&quot;defaultname&quot;</span><span class="s1">)){</span>
+                <span class="s1">outputName.setText(</span><span class="s2">&quot;default name: </span><span class="s0">${</span><span class="s1">sharedNameValue</span><span class="s0">}</span><span class="s2">&quot;</span><span class="s1">).toString()</span>
+                <span class="s1">outputId.setText(</span><span class="s2">&quot;default id: </span><span class="s0">${</span><span class="s1">sharedIdValue.toString()</span><span class="s0">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+                <span class="s1">outputName.setText(sharedNameValue).toString()</span>
+                <span class="s1">outputId.setText(sharedIdValue.toString())</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span>
+        <span class="s1">btnClear.setOnClickListener(View.OnClickListener {</span>
+            <span class="s0">val </span><span class="s1">editor = sharedPreferences.edit()</span>
+            <span class="s1">editor.clear()</span>
+            <span class="s1">editor.apply()</span>
+            <span class="s1">outputName.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">).toString()</span>
+            <span class="s1">outputId.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">.toString())</span>
+        <span class="s1">})</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
